@@ -7121,3 +7121,12 @@ done
 : 1652908639:0;git submodule add zsh/oh-my-zsh
 : 1652908643:0;la
 : 1652908647:0;git add bspwm sxhkd/ scripts/ zsh Xconfig/ urxvt
+: 1652909030:0;git add polybar/ nvim/ dunst/
+: 1652909041:0;git commit -m 'first commit'
+: 1652909058:0;git remote add origin git@github.com:Yottaphy/dotfiles.git
+: 1652909064:0;git push -u origin main
+: 1652909071:0;git status
+: 1652909194:0;v .gitignore
+: 1652909241:0;.config
+: 1652909242:0;la
+: 1652909355:0;git add .
