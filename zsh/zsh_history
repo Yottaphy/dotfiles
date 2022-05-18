@@ -7130,3 +7130,9 @@ done
 : 1652909241:0;.config
 : 1652909242:0;la
 : 1652909355:0;git add .
+: 1652909369:0;git commit -m 'added gitignore'
+: 1652909371:0;git push
+: 1652909375:0;git status
+: 1652909384:0;git add zsh/zsh_history
+: 1652909406:0;v .gitignore
+: 1652909442:0;git commit -am 'corrected gitignore'
