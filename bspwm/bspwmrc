@@ -1,0 +1,61 @@
+#!/bin/sh
+
+export LANG=en_GB.UTF-8
+pgrep -x sxhkd > /dev/null || sxhkd &
+picom &
+nitrogen --restore &
+$HOME/.config/scripts/batterynotification.sh &
+nm-applet &
+blueberry-tray &
+
+# start gnome keyring
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
+# Change System bell sound
+pactl upload-sample /usr/share/sounds/freedesktop/stereo/dialog-error.oga bell-window-system
+pactl load-module module-x11-bell display=$DISPLAY
+
+### MONITORS
+
+if xrandr -q | grep 'HDMI-A-0 connected'; then
+
+  xrandr --output eDP --mode 1920x1080 --set TearFree on
+  xrandr --output HDMI-A-0 --mode 1920x1080 --set TearFree on --above eDP
+
+  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
+  bspc monitor HDMI-A-0 -d 1 2 3 4 5 6 7 8 9 10
+
+  bspc wm --reorder-monitors eDP HDMI-A-0
+else
+
+  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
+  xrandr --output eDP --mode 1920x1080 --set TearFree on
+
+fi
+
+$HOME/.config/polybar/launch.sh
+
+### CONFIG
+bspc config border_width         	2
+bspc config window_gap          	5
+bspc config split_ratio          	0.52
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
+bspc config focus_follows_pointer   true
+bspc config pointer_modifier	    mod4
+bspc config pointer_action1		    move
+bspc config pointer_action2		    resize_side
+bspc config pointer_action3		    resize_corner
+bspc config pointer_motion_interval 40
+
+### COLOURS
+bspc config active_border_color		"#808080"
+bspc config focused_border_color    "#808080"
+
+### RULES
+bspc rule -a Gscreenshot		    state=floating
+bspc rule -a Nm-connection-editor 	state=floating
+bspc rule -a Qalculate-gtk		    state=floating
+bspc rule -a Blueberry.py           state=floating
+bspc rule -a Bluetooth              state=floating
