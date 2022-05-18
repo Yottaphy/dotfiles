@@ -7136,3 +7136,9 @@ done
 : 1652909384:0;git add zsh/zsh_history
 : 1652909406:0;v .gitignore
 : 1652909442:0;git commit -am 'corrected gitignore'
+: 1652909444:0;git push
+: 1652909448:0;ls
+: 1652909451:0;git status
+: 1652909468:0;git remove zsh/zsh_history
+: 1652909489:0;v .gitignore
+: 1652909503:0;git add .
