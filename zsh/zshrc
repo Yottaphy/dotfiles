@@ -108,6 +108,7 @@ alias zshhist='nvim ~/.zsh_history'
 
 # other aliases
 alias code='vscodium'
+alias grain='java -jar $HOME/Programs/grain/grain.jar'
 alias grep='grep --color=auto'
 alias image='mirage'
 #alias liseutils='/home/yottaphy/Programs/LISE_Utils/run.sh &'

@@ -8,7 +8,7 @@ Plug 'machakann/vim-swap' " Swap the order of function arguments
 Plug 'tpope/vim-surround' " Easily add or change parentheses around text
 Plug 'lervag/vimtex' " Tools for editing LaTeX files
 Plug 'SirVer/ultisnips' " Code snippets
-Plug 'ludovicchabant/vim-gutentags' " Regenerate tag files automatically
+" Plug 'ludovicchabant/vim-gutentags' " Regenerate tag files automatically
 Plug 'tpope/vim-commentary' " Commands to comment out blocks of text
 Plug 'Vimjas/vim-python-pep8-indent' " PEP8-compliant Python indentation
 Plug 'dense-analysis/ale' " Asynchronous linter
