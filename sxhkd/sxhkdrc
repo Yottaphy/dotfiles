@@ -8,7 +8,8 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -h 20 -l 5
+    rofi -show drun -theme "~/.config/rofi/themes/ymenu.rasi"
+	#dmenu_run -h 20 -l 5
 
 # make sxhkd reload its configuration files:
 super + alt + Escape
@@ -33,6 +34,10 @@ super + d
 # open steam
 super + p
   steam
+
+# launch rofimoji
+super + alt + e
+  rofimoji
 
 # change keyboard layout
 super + {comma, period}
