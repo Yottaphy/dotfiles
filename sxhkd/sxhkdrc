@@ -11,7 +11,7 @@ super + @space
 	dmenu_run -h 20 -l 5
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + alt + Escape
 	pkill -USR1 -x sxhkd
 
 # open web browser (chrome)
@@ -44,7 +44,7 @@ super + Control_R
 
 # shutdown script
 super + Escape
-    .config/scripts/quit.sh
+   bash /home/yottaphy/.config/scripts/quit.sh 
 
 
 #
