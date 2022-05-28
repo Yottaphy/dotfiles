@@ -42,6 +42,11 @@ super + {comma, period}
 super + Control_R
 	betterlockscreen -l
 
+# shutdown script
+super + Escape
+    .config/scripts/quit.sh
+
+
 #
 # bspwm hotkeys
 #
@@ -54,7 +59,7 @@ super + alt + {q,r}
 super + {_,shift + }q
 	bspc node -{c,k}
 
-  # alternate between the tiled and monocle layout
+# alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
 
