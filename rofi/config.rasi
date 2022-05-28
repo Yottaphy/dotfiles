@@ -1,0 +1,13 @@
+configuration{
+ modi: "window,drun,ssh,combi";
+ font: "UbuntuMono Nerd Font 13";
+ combi-modi: "window,drun,ssh";
+ hover-select: true;
+ me-select-entry: "";
+ /*
+ kb-row-up:   "Ctrl+k";
+ kb-row-down: "Ctrl+j";
+ */
+ me-accept-entry: [ MousePrimary, MouseSecondary, MouseDPrimary ];
+ kb-remove-char-back: "BackSpace";
+}@theme "~/.config/rofi/themes/ymenu.rasi"

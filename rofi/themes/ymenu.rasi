@@ -1,0 +1,65 @@
+configuration {
+ display-run:  " ";
+ display-drun: " ";
+ display-ssh:  " ";
+}
+* {
+  background: #1d1f21;
+  grey:       #292a2b;
+  yellow:     #fba922;
+  background-color: @background; 
+  border-color: #fba922;
+  text-color: #fba922;
+  font: "UbuntuMono Nerd Font 18";
+  show-icons: true; 
+}
+
+window {
+  border: 4;
+  spacing: 5;
+  width: 800px;
+  height: 400px;
+  children:   [ inputbar, listview ];
+}
+
+inputbar {
+  border: 0 0 4 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 5;
+  border: 0 4 0 0;
+  background-color: @yellow;
+  color: @background;
+}
+
+entry {
+  padding: 0 0 0 0;
+  color: @yellow;
+  background-color: @grey;
+}
+
+listview {
+  fixed-height: 0;
+  cycle: true;
+  margin: 0 0 0px 0;
+  scrollbar: false;
+}
+
+element {
+  padding: 2 0 2px 0px;
+}
+
+element selected normal {
+  background-color: @yellow;
+  text-color: #ffffff;
+  highlight: bold; 
+}
+
+element-text {
+}
+
+element-icon {
+  background-color: inherit;
+}
