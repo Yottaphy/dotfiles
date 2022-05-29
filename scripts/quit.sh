@@ -9,7 +9,7 @@ selection=$(echo -e "cancel\nlogout\nreboot\nshutdown" | rofi -dmenu -theme "/ho
 if [[ $selection = "logout" ]]; then
    bspc quit
 elif [[ $selection = "shutdown" ]]; then
-   poweroff
+   shutdown now
 elif [[ $selection = "reboot" ]]; then
    reboot
 else exit
