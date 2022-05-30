@@ -7,14 +7,14 @@ configuration {
   background-color: #1d1f21;
   border-color: #fba922;
   text-color: #fba922;
-  font: "UbuntuMono Nerd Font 18";
+  font: "P22 Johnston Underground Regular 18";
 }
 
 #window {
   border: 4 4 4 4;
   spacing: 5;
   width: 150px;
-  height: 132px;
+  height: 126px;
   children:   [ listview ];
 }
 /*
@@ -55,5 +55,5 @@ element selected {
 }
 
 element-text {
-  horizontal-align: 0.5;
+  /* horizontal-align: 0.5;*/
 }
