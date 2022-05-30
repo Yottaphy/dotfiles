@@ -2,6 +2,7 @@ configuration {
  display-run:  " ";
  display-drun: " ";
  display-ssh:  " ";
+ show-icons: true; 
 }
 * {
   background: #1d1f21;
@@ -11,7 +12,6 @@ configuration {
   border-color: #fba922;
   text-color: #fba922;
   font: "UbuntuMono Nerd Font 18";
-  show-icons: true; 
 }
 
 window {
