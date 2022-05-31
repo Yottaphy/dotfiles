@@ -11,6 +11,10 @@ super + @space
     rofi -show drun -theme "~/.config/rofi/themes/ymenu.rasi"
 	#dmenu_run -h 20 -l 5
 
+# window picker
+alt + Tab
+    rofi -show window -theme "~/.config/rofi/themes/murphy.rasi"
+
 # make sxhkd reload its configuration files:
 super + alt + Escape
 	pkill -USR1 -x sxhkd
@@ -25,7 +29,7 @@ super + f
 
 # open email
 super + e
-  evolution	
+  thunderbird-nightly
 
 # open discord
 super + d

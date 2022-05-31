@@ -1,59 +1,75 @@
 configuration {
     kb-row-up: "k";
     kb-row-down: "j";
+    show-icons: false;
 }
 
 * {
-  background-color: #1d1f21;
-  border-color: #fba922;
-  text-color: #fba922;
+  bg: #1d1f21;
+  bg-alt: #969896;
+
+  fg: #fba922;
+  fg-alt: #969896;
+
+  background-color: @bg;
+  
   font: "P22 Johnston Underground Regular 18";
 }
 
-#window {
-  border: 4 4 4 4;
-  spacing: 5;
-  width: 150px;
-  height: 126px;
+window {
+  border: 2;
+  border-color: @fg;
+  spacing: 2;
+  width: 170;
+  height: 190;
   children:   [ listview ];
-}
-/*
-inputbar {
-  border: 0 0 1px 0;
-  children: [prompt,entry];
-}
-
-prompt {
-  padding: 16px;
-  border: 0 1px 0 0;
-}
-
-textbox {
-  background-color: #1d1f21;
-  border: 0 0 1px 0;
-  border-color: #fba922;
-  padding: 8px 16px;
-}
-*/
-entry {
-  padding: 0 0px 0 0 ;
-}
-
-listview {
-  cycle: true;
-  margin: 0 0 0px 0;
-  scrollbar: false;
 }
 
 element {
-  padding: 2 0 2px 0px;
+  padding: 8 0;
+  text-color: @fg-alt;
 }
 
 element selected {
-  background-color: #fba922;
-  highlight: bold; 
+  text-color: @fg;
 }
 
 element-text {
-  /* horizontal-align: 0.5;*/
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+}
+
+mainbox {
+  background-color: @bg;
+  /* children: [inputbar, listview]; */
+  children: [listview];
+}
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
 }

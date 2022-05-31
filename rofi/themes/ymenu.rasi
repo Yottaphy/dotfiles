@@ -3,6 +3,7 @@ configuration {
  display-drun: " ";
  display-ssh:  " ";
  show-icons: true; 
+ icon-theme: "Papirus";
 }
 * {
   background: #1d1f21;
@@ -11,7 +12,8 @@ configuration {
   background-color: @background; 
   border-color: #fba922;
   text-color: #fba922;
-  font: "UbuntuMono Nerd Font 18";
+  /*font: "UbuntuMono Nerd Font 18";*/
+  font: "Gill Sans Light 18";
 }
 
 window {
@@ -40,6 +42,7 @@ entry {
   background-color: @grey;
 }
 
+
 listview {
   fixed-height: 0;
   cycle: true;
@@ -57,7 +60,12 @@ element selected normal {
   highlight: bold; 
 }
 
+element-icon {
+    size: 3ch;
+}
+
 element-text {
+    padding: 10 0 0 15;
 }
 
 element-icon {
