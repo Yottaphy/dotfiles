@@ -59,4 +59,4 @@ bspc rule -a Nm-connection-editor 	state=floating
 bspc rule -a Qalculate-gtk		    state=floating
 bspc rule -a Blueberry.py           state=floating
 bspc rule -a Bluetooth              state=floating
-bspc rule -a "Picture in Picture"   state=floating
+bspc rule -a Pavucontrol            state=floating
