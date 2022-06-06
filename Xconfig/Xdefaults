@@ -24,9 +24,9 @@ URxvt.color12:      #5685ef
 URxvt.color5:       #a36ac7
 URxvt.color13:      #af7fcf
 
-! cyan
-URxvt.color6:       #3971ed
-URxvt.color14:      #618ff1
+! orange
+URxvt.color6:       #ed7d31
+URxvt.color14:      #ef8b43
 
 ! white
 URxvt.color7:       #c5c8c6

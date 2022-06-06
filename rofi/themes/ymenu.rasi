@@ -9,9 +9,10 @@ configuration {
   background: #1d1f21;
   grey:       #292a2b;
   yellow:     #fba922;
+  orange:     #ed7d31;
   background-color: @background; 
-  border-color: #fba922;
-  text-color: #fba922;
+  border-color: @orange;
+  text-color:   @orange;
   /*font: "UbuntuMono Nerd Font 18";*/
   font: "Gill Sans Light 18";
 }
@@ -32,13 +33,13 @@ inputbar {
 prompt {
   padding: 5;
   border: 0 4 0 0;
-  background-color: @yellow;
+  background-color: @orange;
   color: @background;
 }
 
 entry {
   padding: 0 0 0 0;
-  color: @yellow;
+  color: @orange;
   background-color: @grey;
 }
 
@@ -55,7 +56,7 @@ element {
 }
 
 element selected normal {
-  background-color: @yellow;
+  background-color: @orange;
   text-color: #ffffff;
   highlight: bold; 
 }
