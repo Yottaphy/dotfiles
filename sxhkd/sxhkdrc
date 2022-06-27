@@ -19,7 +19,7 @@ alt + Tab
 super + alt + Escape
 	pkill -USR1 -x sxhkd
 
-# open web browser (chrome)
+# open web browser 
 super + w
 	opera
 
