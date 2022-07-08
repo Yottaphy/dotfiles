@@ -60,3 +60,4 @@ bspc rule -a Qalculate-gtk		    state=floating
 bspc rule -a Blueberry.py           state=floating
 bspc rule -a Bluetooth              state=floating
 bspc rule -a Pavucontrol            state=floating
+bspc rule -a Zathura                state=tiled

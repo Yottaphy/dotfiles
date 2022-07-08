@@ -7,6 +7,7 @@ Plug 'mbbill/undotree' " Save a full undo tree, not just a linear history
 Plug 'machakann/vim-swap' " Swap the order of function arguments
 Plug 'tpope/vim-surround' " Easily add or change parentheses around text
 Plug 'lervag/vimtex' " Tools for editing LaTeX files
+Plug 'Shougo/deoplete.nvim' " Autocomplete for latex
 Plug 'SirVer/ultisnips' " Code snippets
 " Plug 'ludovicchabant/vim-gutentags' " Regenerate tag files automatically
 Plug 'tpope/vim-commentary' " Commands to comment out blocks of text
@@ -37,8 +38,8 @@ set writebackup
 set fsync
 
 " Wrap after 80 characters, unless in the middle of a word
-set wrap
-set tw=80
+" set wrap
+"set tw=80
 
 " Show line numbers relative to the current line
 set number
@@ -98,7 +99,7 @@ set inccommand=nosplit
 " nnoremap : <nop>
 
 " Use right shift as the leader
-map <backspace> <leader>
+map <space> <leader>
 
 " Disable Ex mode
 noremap Q <nop>
@@ -179,6 +180,14 @@ let g:vimtex_view_forward_search_on_start = 0
 
 " Default TeX flavour
 let g:tex_flavor = "latex"
+
+" Autocomplete with deoplete
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+
+" Deoplete at startup
+let g:deoplete#enable_at_startup = 1
 
 " ------------------------------------------------------------------------------
 " ALE
