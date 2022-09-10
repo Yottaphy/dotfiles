@@ -61,3 +61,5 @@ bspc rule -a Blueberry.py           state=floating
 bspc rule -a Bluetooth              state=floating
 bspc rule -a Pavucontrol            state=floating
 bspc rule -a Zathura                state=tiled
+bspc rule -a Picture-in-picture     state=floating
+bspc rule -a Msgcompose             state=floating

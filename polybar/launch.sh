@@ -13,5 +13,7 @@ polybar floatingright &
 
 external=$(xrandr --query | grep 'HDMI-A-0')
 if [[ $external = *connected* ]]; then
-  polybar external &
+    polybar floatingleft_ext &
+    polybar floatingcentre_ext &
+    polybar floatingright_ext &
 fi
