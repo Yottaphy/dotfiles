@@ -1,12 +1,13 @@
 #!/bin/sh
 
 export LANG=en_GB.UTF-8
+export LOCALE=en_GB.UTF-8
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom &
-nitrogen --restore &
 $HOME/.config/scripts/batterynotification.sh &
 nm-applet &
 blueberry-tray &
+wmname LG3D
 
 # start gnome keyring
 eval $(gnome-keyring-daemon --start)
@@ -22,6 +23,7 @@ if xrandr -q | grep 'HDMI-A-0 connected'; then
 
   xrandr --output eDP --mode 1920x1080 --set TearFree on
   xrandr --output HDMI-A-0 --mode 1920x1080 --set TearFree on --above eDP
+  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper_2screen.png
 
   bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
   bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17 18 19 20 
@@ -31,6 +33,7 @@ else
 
   bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
   xrandr --output eDP --mode 1920x1080 --set TearFree on
+  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper.png
 
 fi
 

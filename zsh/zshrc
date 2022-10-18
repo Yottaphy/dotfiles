@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/yottaphy/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yottaphy/.oh-my-zsh"
@@ -72,6 +73,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+    zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 
@@ -108,7 +110,7 @@ alias zshhist='nvim ~/.zsh_history'
 
 # other aliases
 alias code='vscodium'
-alias grain='java -jar $HOME/Programs/grain/grain.jar'
+alias grain='java -Xmx10000M -Xms256M -jar $HOME/Programs/grain/grain.jar'
 alias grep='grep --color=auto'
 alias image='mirage'
 #alias liseutils='/home/yottaphy/Programs/LISE_Utils/run.sh &'
