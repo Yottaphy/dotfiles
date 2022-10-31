@@ -166,8 +166,9 @@ nnoremap  <C-u> :UndotreeToggle<CR>
 "  VIMTEX
 " ------------------------------------------------------------------------------
 
-" Compile LaTeX with latexmk
+" Compile LaTeX with latexmk multiple times
 let g:vimtex_compiler_programme = "latexmk"
+let g:Tex_MultipleCompileFormats = "pdf"
 
 " Allows callbacks with neovim
 let g:vimtex_compiler_progname = "nvr"
@@ -182,6 +183,8 @@ let g:vimtex_view_forward_search_on_start = 0
 let g:tex_flavor = "latex"
 
 let g:Tex_IgnoredWarnings = 
+    \'Youre missing a field name'."\n".
+    \'Overfull \hbox'."\n".
     \'Underfull'."\n".
     \'Overfull'."\n".
     \'specifier changed to'."\n".
