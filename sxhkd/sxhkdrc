@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  urxvt 
+  urxvt
 
 # program launcher
 super + @space
@@ -24,12 +24,12 @@ super + w
     brave	
 
 # open file manager 
-super + f
+super + n
   nautilus ~ &
 
 # open email
 super + e
-  thunderbird-nightly
+  thunderbird
 
 # open discord
 super + d
@@ -85,7 +85,7 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,a}
+super + {t,shift + t,f,a}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
@@ -147,11 +147,11 @@ super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
+super + ctrl + Escape
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
+super + ctrl + shift + Escape
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
@@ -183,17 +183,17 @@ XF86AudioMicMute
 
 # brightness control buttons
 XF86MonBrightnessDown
-	xbacklight -dec 5
+	brightnessctl s 10%-
 XF86MonBrightnessUp
-	xbacklight -inc 5
+	brightnessctl s 10%+
 
 # open wifi settings
 XF86WLAN
 	nm-connection-editor
 
 # open screenshot
-Print
-	gscreenshot	
+shift + Print
+	flameshot gui	
 
 # calculator shortcut
 XF86Calculator

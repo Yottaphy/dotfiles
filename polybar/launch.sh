@@ -7,12 +7,20 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1;done
 
 #Launch bar1 and bar2
-external=$(xrandr --query | grep 'HDMI-A-0')
-if [[ $external = *connected* ]]; then
+externalHDMI=$(xrandr --query | grep 'HDMI-A-0')
+if [[ $externalHDMI = *connected* ]]; then
     polybar floatingleft_ext &
     polybar floatingcentre_ext &
     polybar floatingright_ext &
 fi
+
+externalDP=$(xrandr --query | grep 'DisplayPort-0')
+if [[ $externalDP = *connected* ]]; then
+    polybar floatingleft_ext2 &
+    polybar floatingcentre_ext2 &
+    polybar floatingright_ext2 &
+fi
+
 
 polybar floatingleft &
 polybar floatingcentre &

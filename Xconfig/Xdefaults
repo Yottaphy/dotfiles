@@ -39,26 +39,26 @@ URxvt.background:   [95]#1d1f21
 URxvt.cursorColor:  #c5c8c6
 
 !! Look
-URxvt.cursorUnderline: true
-URxvt.font:            xft:UbuntuMono Nerd Font:size=18:antialias=true:hinting=true
-URxvt.boldFont:            xft:UbuntuMono Nerd Font:bold:size=18:antialias=true:hinting=true
-URxvt.letterSpace:     0
-URxvt.internalBorder:  15
-URxvt.scrollBar:       false
+URxvt.cursorUnderline:  true
+URxvt.font:             xft:UbuntuMono Nerd Font:size=18:antialias=true:hinting=true
+URxvt.boldFont:         xft:UbuntuMono Nerd Font:bold:size=18:antialias=true:hinting=true
+URxvt.letterSpace:      0
+URxvt.internalBorder:   15
+URxvt.scrollBar:        false
+URxvt.geometry:         400x400
 
 !!Functionality
-URxvt.perl-ext-common: default,clipboard,matcher,resize-font,url-select,keyboard-select
-URxvt.copyCommand:     xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-n: perl:url-select:select_next
-URxvt.urlLauncher:google-chrome
-URxvt.underlineURLs: true
+URxvt.perl-ext-common:  default,clipboard,matcher,resize-font,url-select,keyboard-select
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
+URxvt.keysym.M-c:       perl:clipboard:copy
+URxvt.keysym.M-v:       perl:clipboard:paste
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keysym.M-s:       perl:keyboard-select:search
+URxvt.keysym.M-n:       perl:url-select:select_next
+URxvt.urlLauncher:      brave
+URxvt.underlineURLs:    true
 
 ! Resize
  URxvt.keysym.C-Down:  resize-font:smaller
  URxvt.keysym.C-Up:    resize-font:bigger
-

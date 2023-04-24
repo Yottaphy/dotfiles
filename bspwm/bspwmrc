@@ -8,6 +8,7 @@ $HOME/.config/scripts/batterynotification.sh &
 nm-applet &
 blueberry-tray &
 wmname LG3D
+fusuma -c $HOME/.config/fusuma/config.yml &
 
 # start gnome keyring
 eval $(gnome-keyring-daemon --start)
@@ -29,6 +30,25 @@ if xrandr -q | grep 'HDMI-A-0 connected'; then
   bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17 18 19 20 
 
   bspc wm --reorder-monitors eDP HDMI-A-0
+
+elif xrandr -q | grep 'DisplayPort-0 connected'; then
+
+  xrandr --output eDP --mode 1920x1080 --set TearFree on
+  xrandr --output DisplayPort-0 --mode 1920x1080 --set TearFree on --above eDP
+  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper_2screen.png
+
+  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
+  bspc monitor DisplayPort-0 -d 11 12 13 14 15 16 17 18 19 20
+
+  bspc wm --reorder-monitors eDP DisplayPort-0
+
+elif [xrandr -q | grep 'DisplayPort-0 disconnected'] && [xrandr -q | grep 'HDMI-A-0 disconnected']; then
+
+  xrandr --output eDP --mode 1920x1080 --set TearFree on
+  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper.png
+
+  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
+
 else
 
   bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
@@ -40,29 +60,32 @@ fi
 $HOME/.config/polybar/launch.sh
 
 ### CONFIG
-bspc config border_width         	2
-bspc config window_gap          	5
-bspc config split_ratio          	0.52
-bspc config borderless_monocle   	true
-bspc config gapless_monocle      	true
-bspc config focus_follows_pointer   true
-bspc config pointer_modifier	    super
-bspc config pointer_action1		    move
-bspc config pointer_action2		    resize_side
-bspc config pointer_action3		    resize_corner
-bspc config pointer_motion_interval 40
+bspc config border_width            	2
+bspc config window_gap              	5
+bspc config split_ratio             	0.52
+bspc config borderless_monocle      	true
+bspc config gapless_monocle         	true
+bspc config focus_follows_pointer       true
+bspc config pointer_modifier	        super
+bspc config pointer_action1		        move
+bspc config pointer_action2		        resize_side
+bspc config pointer_action3		        resize_corner
+bspc config pointer_motion_interval     40
+bspc config remove_disabled_monitors    true
+bspc config remove_unplugged_monitors   true
 
 ### COLOURS
 bspc config active_border_color		"#808080"
 bspc config focused_border_color    "#808080"
 
 ### RULES
-bspc rule -a Gscreenshot		    state=floating
-bspc rule -a Nm-connection-editor 	state=floating
-bspc rule -a Qalculate-gtk		    state=floating
-bspc rule -a Blueberry.py           state=floating
-bspc rule -a Bluetooth              state=floating
-bspc rule -a Pavucontrol            state=floating
-bspc rule -a Zathura                state=tiled
-bspc rule -a Picture-in-picture     state=floating
-bspc rule -a Msgcompose             state=floating
+bspc rule -a Gscreenshot		                    state=floating
+bspc rule -a Nm-connection-editor 	                state=floating
+bspc rule -a Qalculate-gtk		                    state=floating
+bspc rule -a Blueberry.py                           state=floating
+bspc rule -a Bluetooth                              state=floating
+bspc rule -a Pavucontrol                            state=floating
+bspc rule -a Zathura                                state=tiled
+bspc rule -a Msgcompose                             state=floating
+bspc rule -a Tk                                     state=floating
+bspc rule -a brave-browser:Picture-in-picture       state=floating

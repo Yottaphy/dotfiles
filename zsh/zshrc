@@ -113,7 +113,10 @@ alias code='vscodium'
 alias grain='java -Xmx10000M -Xms256M -jar $HOME/Programs/grain/grain.jar'
 alias grep='grep --color=auto'
 alias image='mirage'
+alias jyumount='sudo .config/scripts/jyumount.sh'
+alias jyudismount='sudo umount /media/JYUdrives/S-drive /media/JYUdrives/U-drive'
 #alias liseutils='/home/yottaphy/Programs/LISE_Utils/run.sh &'
+alias n='urxvt &; disown'
 alias pacman='sudo pacman'
 #alias paru='sudo paru'
 alias pdf='zathura'
@@ -127,3 +130,25 @@ alias where='sudo find -name'
 source $ZSH/oh-my-zsh.sh
 source /home/yottaphy/Programs/root/root_install/bin/thisroot.sh
 #neofetch #deactivate neofetch for a while
+#
+
+#function for when i forget to be sudo
+
+function pls ()
+{
+    # Get command history, and quit if it is empty
+    # Otherwise, get the most recent command from history
+    HIST=$(history);
+    if [[ $(tail -n1 <<< ${HIST} | awk '{print $4}') == "pls" ]];
+    then
+        echo "no";
+        return;
+    fi;
+    HIST=$(tail -n1 <<< ${HIST});
+
+    # Use awk to process the command history entry
+    # This amounts to discarding the first field of the entry, and retaining all
+    # others
+    COMMAND=$(echo ${HIST} | awk '{for (i=4; i<NF; i++) printf $i " "; printf $NF}');
+    eval sudo $COMMAND;
+}
