@@ -8,6 +8,8 @@ $HOME/.config/scripts/batterynotification.sh &
 nm-applet &
 blueberry-tray &
 wmname LG3D
+killall polybar
+killall fusuma
 fusuma -c $HOME/.config/fusuma/config.yml &
 
 # start gnome keyring
@@ -20,42 +22,20 @@ pactl load-module module-x11-bell display=$DISPLAY
 
 ### MONITORS
 
-if xrandr -q | grep 'HDMI-A-0 connected'; then
+bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
+xrandr --output eDP --mode 1920x1080 --set TearFree on
+nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper.png
 
-  xrandr --output eDP --mode 1920x1080 --set TearFree on
-  xrandr --output HDMI-A-0 --mode 1920x1080 --set TearFree on --above eDP
-  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper_2screen.png
+# If external is not empty, set 2 monitors up
+for EXTERNAL in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    if [[ $EXTERNAL != "eDP" ]]; then
+        xrandr --output $EXTERNAL --mode 1920x1080 --set TearFree on --above eDP
+        nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper_2screen.png
 
-  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
-  bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17 18 19 20 
-
-  bspc wm --reorder-monitors eDP HDMI-A-0
-
-elif xrandr -q | grep 'DisplayPort-0 connected'; then
-
-  xrandr --output eDP --mode 1920x1080 --set TearFree on
-  xrandr --output DisplayPort-0 --mode 1920x1080 --set TearFree on --above eDP
-  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper_2screen.png
-
-  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
-  bspc monitor DisplayPort-0 -d 11 12 13 14 15 16 17 18 19 20
-
-  bspc wm --reorder-monitors eDP DisplayPort-0
-
-elif [xrandr -q | grep 'DisplayPort-0 disconnected'] && [xrandr -q | grep 'HDMI-A-0 disconnected']; then
-
-  xrandr --output eDP --mode 1920x1080 --set TearFree on
-  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper.png
-
-  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
-
-else
-
-  bspc monitor eDP      -d 1 2 3 4 5 6 7 8 9 10
-  xrandr --output eDP --mode 1920x1080 --set TearFree on
-  nitrogen --set-zoom-fill ~/Pictures/Wallpaper/portal2_wallpaper.png
-
-fi
+        bspc monitor $EXTERNAL -d 11 12 13 14 15 16 17 18 19 20 
+        bspc wm --reorder-monitors eDP $EXTERNAL
+    fi
+done
 
 $HOME/.config/polybar/launch.sh
 
