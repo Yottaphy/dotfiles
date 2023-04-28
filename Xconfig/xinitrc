@@ -34,7 +34,6 @@ fi
 
 rm -rf $HOME/.local/share/Trash/files/*
 nitrogen --restore &
-$HOME/.screenlayout/display.sh
 xsetroot -cursor_name left_ptr
 picom &
 exec bspwm

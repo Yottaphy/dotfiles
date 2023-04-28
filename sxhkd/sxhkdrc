@@ -187,10 +187,6 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
 	brightnessctl s 10%+
 
-# open wifi settings
-XF86WLAN
-	nm-connection-editor
-
 # open screenshot
 shift + Print
 	flameshot gui	
@@ -198,3 +194,7 @@ shift + Print
 # calculator shortcut
 XF86Calculator
 	qalculate-gtk
+
+# monitor switch
+XF86Display
+    nohup $HOME/.config/scripts/monitorchange.sh > /dev/null 2>&1 &
