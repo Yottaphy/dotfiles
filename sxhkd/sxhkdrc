@@ -3,8 +3,8 @@
 #
 
 # terminal emulator
-super + Return
-  urxvt
+super + {_, shift} + Return
+  {_, bspc rule -a \* -o state=floating rectangle=1200x600+0+0 center=on &} urxvt
 
 # program launcher
 super + @space
@@ -24,8 +24,8 @@ super + w
     brave	
 
 # open file manager 
-super + n
-  nautilus ~ &
+super + {_, shift}  + n
+  {_, bspc rule -a \* -o state=floating rectangle=1600x800+0+0 center=on &} thunar
 
 # open email
 super + e

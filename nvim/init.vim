@@ -230,3 +230,15 @@ let g:rustfmt_autosave = 1
 
 " Automatically run Black on saving a buffer
 autocmd BufWritePre *.py execute ':Black'
+
+" ------------------------------------------------------------------------------
+" ULTISNIPS
+" ------------------------------------------------------------------------------
+
+let g:UltiSnipsSnippetDir='home/yottaphy/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger= '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:UltiSnipsEditSplit='vertical'
+
+

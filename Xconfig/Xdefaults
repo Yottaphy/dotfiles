@@ -35,7 +35,7 @@ URxvt.color15:      #ffffff
 ! grounds
 URxvt.foreground:   #c5c8c6
 !URxvt.foreground:   #000000
-URxvt.background:   [95]#1d1f21
+URxvt.background:   #1d1f21
 URxvt.cursorColor:  #c5c8c6
 
 !! Look
@@ -45,7 +45,7 @@ URxvt.boldFont:         xft:UbuntuMono Nerd Font:bold:size=18:antialias=true:hin
 URxvt.letterSpace:      0
 URxvt.internalBorder:   15
 URxvt.scrollBar:        false
-URxvt.geometry:         400x400
+URxvt.geometry:         40x40
 
 !!Functionality
 URxvt.perl-ext-common:  default,clipboard,matcher,resize-font,url-select,keyboard-select
