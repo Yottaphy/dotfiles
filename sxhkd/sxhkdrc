@@ -49,7 +49,10 @@ super + {comma, period}
 
 # lock screen 
 super + Control_R
-	betterlockscreen -l
+	dm-tool switch-to-greeter
+
+XF86ScreenSaver
+	dm-tool switch-to-greeter
 
 # shutdown script
 super + Escape
