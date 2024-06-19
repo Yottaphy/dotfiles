@@ -1,4 +1,4 @@
- "  ------------------------------------------------------------------------------
+"  ------------------------------------------------------------------------------
 " VIM-PLUG
 " ------------------------------------------------------------------------------
 
@@ -6,7 +6,7 @@ call plug#begin("~/.config/nvim/plugged")
 Plug 'mbbill/undotree' " Save a full undo tree, not just a linear history
 Plug 'machakann/vim-swap' " Swap the order of function arguments
 Plug 'tpope/vim-surround' " Easily add or change parentheses around text
-Plug 'lervag/vimtex' " Tools for editing LaTeX files
+Plug 'peterbjorgensen/sved' " Evince compatibility
 Plug 'Shougo/deoplete.nvim' " Autocomplete for latex
 Plug 'SirVer/ultisnips' " Code snippets
 " Plug 'ludovicchabant/vim-gutentags' " Regenerate tag files automatically
@@ -16,7 +16,9 @@ Plug 'dense-analysis/ale' " Asynchronous linter
 Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and indentation
 Plug 'tikhomirov/vim-glsl' " Syntax highlighting for GLSL
 Plug 'rust-lang/rust.vim' " Rust formatting, syntax hightlighting, etc.
-Plug 'psf/black' " Python formatting
+Plug 'pyarmak/vim-pandoc-live-preview' " Pandoc live preview
+Plug 'averms/black-nvim' " Python formatting
+Plug 'lervag/vimtex' " Tools for editing LaTeX files
 call plug#end()
 
 " ------------------------------------------------------------------------------
@@ -96,6 +98,7 @@ set inccommand=nosplit
 
 " Use the spacebar to start ex commands, and free the colon mapping
 " nnoremap <space> :
+" nnoremap ; :
 " nnoremap : <nop>
 
 " Use right shift as the leader
@@ -166,6 +169,8 @@ nnoremap  <C-u> :UndotreeToggle<CR>
 "  VIMTEX
 " ------------------------------------------------------------------------------
 
+syntax enable
+
 " Compile LaTeX with latexmk multiple times
 let g:vimtex_compiler_programme = "latexmk"
 let g:Tex_MultipleCompileFormats = "pdf"
@@ -173,14 +178,15 @@ let g:Tex_MultipleCompileFormats = "pdf"
 " Allows callbacks with neovim
 let g:vimtex_compiler_progname = "nvr"
 
-" View compiled PDFs with zathura
-let g:vimtex_view_method = "zathura"
+" View compiled PDFs with evince
+"let g:vimtex_view_method = "zathura"
+let g:vimtex_view_general_viewer = 'evince'
 
 " Don't automatically forward search on starting the compilet
 let g:vimtex_view_forward_search_on_start = 0
 
 " Default TeX flavour
-let g:tex_flavor = "latex"
+" let g:tex_flavor = "latex"
 
 let g:Tex_IgnoredWarnings = 
     \'Youre missing a field name'."\n".
@@ -196,12 +202,18 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 8
 
 " Autocomplete with deoplete
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
+" call deoplete#custom#var('omni', 'input_patterns', {
+"       \ 'tex': g:vimtex#re#deoplete
+"       \})
 
 " Deoplete at startup
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+
+" ------------------------------------------------------------------------------
+" Sved
+" ------------------------------------------------------------------------------
+
+nnoremap <C-LeftMouse> :call SVED_Sync()<CR>
 
 " ------------------------------------------------------------------------------
 " ALE
@@ -230,6 +242,20 @@ let g:rustfmt_autosave = 1
 
 " Automatically run Black on saving a buffer
 autocmd BufWritePre *.py execute ':Black'
+"autocmd BufWritePre *.py execute ':!black %'
+"autocmd BufWritePre *.py call Black()
+
+" ------------------------------------------------------------------------------
+" MARKDOWN PREVIEW
+" ------------------------------------------------------------------------------
+
+"normal/insert
+nnoremap <leader>m :MarkdownPreviewToggle<CR>
+
+function OpenMarkdownPreview (url)
+    execute "/bin/brave --new-window " . a:url
+  endfunction
+  let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 
 " ------------------------------------------------------------------------------
 " ULTISNIPS
@@ -240,5 +266,3 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger= '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsEditSplit='vertical'
-
-

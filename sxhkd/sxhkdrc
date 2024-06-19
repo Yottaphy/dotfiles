@@ -25,7 +25,7 @@ super + w
 
 # open file manager 
 super + {_, shift}  + n
-  {_, bspc rule -a \* -o state=floating rectangle=1600x800+0+0 center=on &} thunar
+  {_, bspc rule -a \* -o state=floating rectangle=1600x800+0+0 center=on &} nemo
 
 # open email
 super + e
@@ -58,6 +58,9 @@ XF86ScreenSaver
 super + Escape
    bash /home/yottaphy/.config/scripts/quit.sh 
 
+# reload polybar
+shift + F12
+    /bin/sh /home/.config/polybar/launch.sh
 
 #
 # bspwm hotkeys

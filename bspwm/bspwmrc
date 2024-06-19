@@ -28,15 +28,26 @@ xrandr --output eDP --mode 1920x1080 --set TearFree on
 nitrogen --set-zoom-fill ~/Pictures/Wallpaper/Jyv.png
 
 # If external is not empty, set 2 monitors up
-for EXTERNAL in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    if [[ $EXTERNAL != "eDP" ]]; then
-        xrandr --output $EXTERNAL --mode 1920x1080 --set TearFree on --above eDP
-        nitrogen --set-zoom-fill ~/Pictures/Wallpaper/Jyv2.png
+#for EXTERNAL in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+ 
+#xrandr --output DisplayPort-0 --mode 1920x1080 --set TearFree on --above eDP
+#bspc monitor DisplayPort-0 -d 21 22 23 24 25 26 27 28 29 30
+#xrandr --output HDMI-A-0 --mode 1920x1200 --set TearFree on --left-of DisplayPort-0
+#bspc monitor HDMI-A-0 -d 11 12 13 14 15 16 17 18 19 20
+#
+#nitrogen --set-zoom-fill ~/Pictures/Wallpaper/Jyv2.png
+#bspc wm --reorder-monitors eDP HDMI-A-0 DisplayPort-0
 
-        bspc monitor $EXTERNAL -d 11 12 13 14 15 16 17 18 19 20 
-        bspc wm --reorder-monitors eDP $EXTERNAL
-    fi
-done
+#3 monitor setup
+
+xrandr --newmode "1920x1200"  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync
+xrandr --addmode DisplayPort-2 1920x1200                                                    
+xrandr --output DisplayPort-2 --mode 1920x1200 --set TearFree on --left-of eDP          
+xrandr --output DisplayPort-1 --mode 1920x1080 --set TearFree on --left-of DisplayPort-2
+bspc monitor eDP -d 21 22 23 24 25 26 27 28 29 30         
+bspc monitor DisplayPort-2 -d 11 12 13 14 15 16 17 18 19 20
+bspc monitor DisplayPort-1 -d 1 2 3 4 5 6 7 8 9 10         
+bspc wm --reorder-monitors DisplayPort-1 DisplayPort-2 eDP
 
 $HOME/.config/polybar/launch.sh
 
