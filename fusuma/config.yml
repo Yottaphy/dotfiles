@@ -1,0 +1,31 @@
+swipe:
+  3:
+    left:
+      command: "exec bspc desktop -f prev.local"
+    right:
+      command: "exec bspc desktop -f next.local"
+    up:
+      command: "exec bspc monitor -f north"
+    down:
+      command: "exec bspc monitor -f south"
+  4:
+    left:
+      command: "exec bspc node --to-desktop prev.local"
+    right:
+      command: "exec bspc node --to-desktop next.local"
+    up:
+      command: "exec bspc node --to-monitor north"
+    down:
+      command: "exec bspc node --to-monitor south"
+ 
+pinch:
+  out:
+    command: "exec bspc desktop -l tiled"
+  in:
+    command: "exec bspc desktop -l monocle"
+
+threshold:
+  swipe: 1.4
+
+interval:
+  swipe: 1

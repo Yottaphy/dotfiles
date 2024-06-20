@@ -1,0 +1,76 @@
+configuration {
+    kb-row-up: "k";
+    kb-row-down: "j";
+    show-icons: false;
+}
+
+* {
+  bg: #1d1f21;
+  bg-alt: #969896;
+
+  /* fg: #fba922; */
+  fg: #ed7d31;
+  fg-alt: #969896;
+
+  background-color: @bg;
+  
+  font: "P22 Johnston Underground Regular 18";
+}
+
+window {
+  border: 2;
+  border-color: @fg;
+  spacing: 2;
+  width: 170;
+  height: 190;
+  children:   [ listview ];
+}
+
+element {
+  padding: 8 0;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 30;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 8;
+}
+
+mainbox {
+  background-color: @bg;
+  /* children: [inputbar, listview]; */
+  children: [listview];
+}
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
+}
