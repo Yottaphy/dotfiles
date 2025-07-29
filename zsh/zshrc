@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/home/yottaphy/.local/bin:$PATH
+export PATH=/home/yottaphy/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yottaphy/.oh-my-zsh"
@@ -72,9 +73,16 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+    archlinux
+    cp
+    copypath
+    emoji
+	gitfast
+    history-substring-search
+    wd
     zsh-autosuggestions
 	zsh-syntax-highlighting
+    z
 )
 
 # User configuration
@@ -112,17 +120,17 @@ alias zshhist='nvim ~/.zsh_history'
 alias code='vscodium'
 alias grain='java -Xmx10000M -Xms256M -jar $HOME/Programs/grain/grain.jar'
 alias grep='grep --color=auto'
-alias image='feh'
+alias image='xdg-open'
 alias jyumount='sudo .config/scripts/jyumount.sh'
 alias jyudismount='sudo umount /media/JYUdrives/S-drive /media/JYUdrives/U-drive'
 #alias liseutils='/home/yottaphy/Programs/LISE_Utils/run.sh &'
-alias n='urxvt &; disown'
+alias n='alacritty &; disown'
 alias pacman='sudo pacman'
 #alias paru='sudo paru'
 alias pdf='evince'
 alias polybar='~/.config/polybar/launch.sh'
 alias sshjyu='ssh jyu exec export TERM=xterm-256color'
-alias t='thunar . &; disown'
+alias t='nemo . &; disown'
 alias v='nvim'
 alias V='sudo nvim'
 alias where='sudo find -name'

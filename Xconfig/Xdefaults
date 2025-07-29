@@ -49,16 +49,21 @@ URxvt.geometry:         40x40
 
 !!Functionality
 URxvt.perl-ext-common:  default,clipboard,matcher,resize-font,url-select,keyboard-select
-URxvt.copyCommand:      xclip -i -selection clipboard
-URxvt.pasteCommand:     xclip -o -selection clipboard
-URxvt.keysym.M-c:       perl:clipboard:copy
-URxvt.keysym.M-v:       perl:clipboard:paste
+URxvt.copyCommand:      wl-copy -i -selection clipboard
+URxvt.pasteCommand:     wl-paste -o -selection clipboard
+URxvt.keysym.C-c:       perl:clipboard:copy
+URxvt.keysym.C-v:       perl:clipboard:paste
 URxvt.keysym.M-Escape:  perl:keyboard-select:activate
 URxvt.keysym.M-s:       perl:keyboard-select:search
 URxvt.keysym.M-n:       perl:url-select:select_next
-URxvt.urlLauncher:      brave
+URxvt.urlLauncher:      /usr/bin/xdg-open
 URxvt.underlineURLs:    true
 
 ! Resize
- URxvt.keysym.C-Down:  resize-font:smaller
- URxvt.keysym.C-Up:    resize-font:bigger
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+URxvt.keysym.C-KP_Subtract:  resize-font:smaller
+URxvt.keysym.C-KP_Add:       resize-font:bigger
+URxvt.keysym.C-KP_Multiply:  resize-font:reset
+URxvt.clipboard.button:  2
+URxvt.clipboard.pattern.2:  wl-paste --primary

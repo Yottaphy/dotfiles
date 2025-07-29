@@ -1,8 +1,9 @@
-"  ------------------------------------------------------------------------------
-" VIM-PLUG
+"qqqa  ------------------------------------------------------------------------------
+" " VIM-PLUG
 " ------------------------------------------------------------------------------
 
 call plug#begin("~/.config/nvim/plugged")
+Plug 'ap/vim-css-color' " Highlight colours 
 Plug 'mbbill/undotree' " Save a full undo tree, not just a linear history
 Plug 'machakann/vim-swap' " Swap the order of function arguments
 Plug 'tpope/vim-surround' " Easily add or change parentheses around text
@@ -12,7 +13,7 @@ Plug 'SirVer/ultisnips' " Code snippets
 " Plug 'ludovicchabant/vim-gutentags' " Regenerate tag files automatically
 Plug 'tpope/vim-commentary' " Commands to comment out blocks of text
 Plug 'Vimjas/vim-python-pep8-indent' " PEP8-compliant Python indentation
-Plug 'dense-analysis/ale' " Asynchronous linter
+" Plug 'dense-analysis/ale' " Asynchronous linter
 Plug 'neovimhaskell/haskell-vim' " Haskell syntax highlighting and indentation
 Plug 'tikhomirov/vim-glsl' " Syntax highlighting for GLSL
 Plug 'rust-lang/rust.vim' " Rust formatting, syntax hightlighting, etc.
@@ -27,9 +28,10 @@ call plug#end()
 
 " Syntax highlighting
 syntax enable
+syntax on
 
 " Omnicompletion
-filetype plugin on
+filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 " Save backups to ~/.nvim-tmp to avoid them cluttering the working directory
@@ -169,8 +171,6 @@ nnoremap  <C-u> :UndotreeToggle<CR>
 "  VIMTEX
 " ------------------------------------------------------------------------------
 
-syntax enable
-
 " Compile LaTeX with latexmk multiple times
 let g:vimtex_compiler_programme = "latexmk"
 let g:Tex_MultipleCompileFormats = "pdf"
@@ -266,3 +266,9 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger= '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 let g:UltiSnipsEditSplit='vertical'
+
+" ------------------------------------------------------------------------------
+" COLOUR
+" ------------------------------------------------------------------------------
+
+colorscheme yottaphy

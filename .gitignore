@@ -1,0 +1,14 @@
+*
+!.gitignore
+!Xconfig/*
+!bspwm/*
+!dmenu/*
+!dunst/*
+!nvim/*
+!picom/*
+!polybar/*
+!rofi/*
+!scripts/*
+!sxhkd/*
+!zsh/*
+zsh/zsh_history

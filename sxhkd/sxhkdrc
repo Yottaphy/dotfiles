@@ -21,7 +21,7 @@ super + alt + Escape
 
 # open web browser 
 super + w
-    brave	
+    firefox	
 
 # open file manager 
 super + {_, shift}  + n
