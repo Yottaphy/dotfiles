@@ -4,6 +4,7 @@
 !bspwm/*
 !dmenu/*
 !dunst/*
+!hypr/*
 !nvim/*
 !picom/*
 !polybar/*
