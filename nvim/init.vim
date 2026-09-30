@@ -1,4 +1,4 @@
-"qqqa  ------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " " VIM-PLUG
 " ------------------------------------------------------------------------------
 
@@ -171,6 +171,9 @@ nnoremap  <C-u> :UndotreeToggle<CR>
 "  VIMTEX
 " ------------------------------------------------------------------------------
 
+" No virtualenv for Black
+let g:black_use_virtualenv = 0
+
 " Compile LaTeX with latexmk multiple times
 let g:vimtex_compiler_programme = "latexmk"
 let g:Tex_MultipleCompileFormats = "pdf"
@@ -244,6 +247,27 @@ let g:rustfmt_autosave = 1
 autocmd BufWritePre *.py execute ':Black'
 "autocmd BufWritePre *.py execute ':!black %'
 "autocmd BufWritePre *.py call Black()
+
+" ------------------------------------------------------------------------------
+" LUA
+" ------------------------------------------------------------------------------
+
+" Automatically run StyLua on saving a buffer
+function! StyluaFormat()
+    let l:view = winsaveview()
+    let l:out = systemlist('stylua --stdin-filepath ' . shellescape(expand('%:p')) . ' -', getline(1, '$'))
+    if v:shell_error == 0
+        silent! undojoin
+        call setline(1, l:out)
+        if line('$') > len(l:out)
+            silent execute (len(l:out) + 1) . ',$delete _'
+        endif
+    endif
+    call winrestview(l:view)
+endfunction
+
+autocmd BufWritePre *.lua call StyluaFormat()
+
 
 " ------------------------------------------------------------------------------
 " MARKDOWN PREVIEW

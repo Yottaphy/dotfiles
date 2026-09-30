@@ -9,7 +9,7 @@
     "modules-left": [
         //"custom/power_btn",
         //"custom/lock_screen",
-        "hyprland/workspaces"
+        "ext/workspaces"
     ],
     "modules-center": [
         //"idle_inhibitor",
@@ -86,30 +86,21 @@
         "tooltip": false
     },
 
-    "hyprland/workspaces": {
+    "ext/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            //"1": "o",
-            //"2": "",
-            //"3": "",
-            //"4": "",
-            //"5": "",
-            //"6": "o",
-            //"7": "",
-            //"8": "",
-            //"9": "",
-            //"10": "",
-            "active": "",
-            "default": ""
+          "urgent": "",
+          "active": "", // focused workspace on current monitor
+          "visible": "", // focused workspace on other monitors
+          "default": "",
+          "empty": "" // persistent (created by this plugin)
         },
-        "on-scroll-up": "hyprctl dispatch workspace -1",
-        "on-scroll-down": "hyprctl dispatch workspace +1",
-        "persistent-workspaces": {
-            "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // 10 workspaces by default on every monitor
-            "DP-1": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20] // 10 workspaces by default on every monitor
-	    }
-    },
-
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+        "on-click": "activate",
+        "sort-by-id": true,
+        "all-outputs": false // recommended
+      },
 
     "wlr/workspaces": {
         "disable-scroll": false,
