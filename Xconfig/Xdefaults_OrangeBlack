@@ -1,0 +1,64 @@
+!! Colour definitions
+
+! black
+URxvt.color0:       #1d1f21
+URxvt.color8:       #969896
+
+! red
+URxvt.color1:       #cc342b
+URxvt.color9:       #d6453c
+
+! green
+URxvt.color2:       #198844
+URxvt.color10:      #1d9d4f
+
+! yellow
+URxvt.color3:       #fba922
+URxvt.color11:      #fbb53f
+
+! blue
+URxvt.color4:       #3971ed
+URxvt.color12:      #5685ef
+
+! magenta
+URxvt.color5:       #a36ac7
+URxvt.color13:      #af7fcf
+
+! orange
+URxvt.color6:       #ed7d31
+URxvt.color14:      #ef8b43
+
+! white
+URxvt.color7:       #c5c8c6
+URxvt.color15:      #ffffff
+
+! grounds
+URxvt.foreground:   #c5c8c6
+!URxvt.foreground:   #000000
+URxvt.background:   #1d1f21
+URxvt.cursorColor:  #c5c8c6
+
+!! Look
+URxvt.cursorUnderline:  true
+URxvt.font:             xft:UbuntuMono Nerd Font:size=18:antialias=true:hinting=true
+URxvt.boldFont:         xft:UbuntuMono Nerd Font:bold:size=18:antialias=true:hinting=true
+URxvt.letterSpace:      0
+URxvt.internalBorder:   15
+URxvt.scrollBar:        false
+URxvt.geometry:         40x40
+
+!!Functionality
+URxvt.perl-ext-common:  default,clipboard,matcher,resize-font,url-select,keyboard-select
+URxvt.copyCommand:      xclip -i -selection clipboard
+URxvt.pasteCommand:     xclip -o -selection clipboard
+URxvt.keysym.M-c:       perl:clipboard:copy
+URxvt.keysym.M-v:       perl:clipboard:paste
+URxvt.keysym.M-Escape:  perl:keyboard-select:activate
+URxvt.keysym.M-s:       perl:keyboard-select:search
+URxvt.keysym.M-n:       perl:url-select:select_next
+URxvt.urlLauncher:      brave
+URxvt.underlineURLs:    true
+
+! Resize
+ URxvt.keysym.C-Down:  resize-font:smaller
+ URxvt.keysym.C-Up:    resize-font:bigger
